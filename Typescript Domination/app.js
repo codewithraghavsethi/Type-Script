@@ -45,7 +45,7 @@ var StatusCode;
     StatusCode["SUCCESS"] = "succes status code 200";
 })(StatusCode || (StatusCode = {}));
 console.log(StatusCode.SUCCESS);
-// Interfaces
+// Interfaces-------------------------------------------------
 var inter1 = 12; //this is a number --> its upon on value of data
 var inter2 = "13"; //this is a string --> its upon on value of data
 var inter3 = true; //this is a boolean --> its upon on value of data
@@ -56,9 +56,64 @@ function getDataOfUser(obj) {
     obj.gender;
 }
 getDataOfUser({ name: 'raghav', email: 'raghavsethi@gmail.com', password: 'raghav123' });
-// Annotations
+function getDataOfUserWithAdmin(obj) {
+    obj.name;
+    obj.email;
+    obj.password;
+    obj.gender;
+    obj.admin;
+}
+getDataOfUserWithAdmin({ name: "raghav", email: "sethi@gmail.com", password: "rs123", gender: "male", admin: "user", });
+function fullname(obj) {
+    obj.firstname;
+    obj.middlename;
+    obj.lastname;
+}
+var aliases1 = "raghav";
+var aliases2 = 12;
+var aliases3 = 123;
+var aliases4 = null;
+var aliases5 = true;
+var aliases6 = "raghavsethi";
+var aliases7 = undefined;
+var aliases8;
+var carYear = 2001;
+var carType = "Toyota";
+var carModel = "Corolla";
+var car = {
+    year: carYear,
+    type: carType,
+    model: carModel
+};
+// Annotations--------------------------------
 var anno1 = 13; // defined the type of data 
 var anno2 = "raghav"; // defined the type of data 
 var anno3 = true; // defined the type of data 
-// Union
-var union = "raghavsethiji";
+// Union---------------------------------------
+var union1 = "raghavsethiji";
+var union2 = 123456789;
+var union3 = true;
+function aliaseFunc(obj) {
+}
+aliaseFunc("raghav"); //  String   Allow
+// aliaseFunc(true)   //  Boolean  Don't Allow
+aliaseFunc(123456); //  Number   Allow
+function interFunc(a) {
+    a.name;
+    a.email;
+    a.getDetails;
+}
+// Classes----------------------------------
+var Device = /** @class */ (function () {
+    function Device() {
+        this.name = "lg";
+        this.price = 12000;
+        this.category = "Digital";
+        this.loaction = "Noida";
+    }
+    return Device;
+}());
+var d1 = new Device;
+var d2 = new Device;
+console.log(d1);
+console.log(d2);
