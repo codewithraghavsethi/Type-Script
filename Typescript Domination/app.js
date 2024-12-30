@@ -113,7 +113,44 @@ var Device = /** @class */ (function () {
     }
     return Device;
 }());
-var d1 = new Device;
-var d2 = new Device;
-console.log(d1);
-console.log(d2);
+var d1 = new Device; //both variable are same 
+var d2 = new Device; //both variable are same 
+// console.log(d1)
+// Device {
+//     name: 'lg',
+//     price: 12000,
+//     category: 'Digital',
+//     loaction: 'Noida'
+//   }
+// console.log(d2)
+//   Device {
+//     name: 'lg',
+//     price: 12000,
+//     category: 'Digital',
+//     loaction: 'Noida'
+//   }
+// Constructor-----------------------------
+// cunstructor biscket nahi biscket maker hoga jisse app or bhi jayada bisckets bna sakte hai and consume kar sakte hai 
+var BottelMaker = /** @class */ (function () {
+    function BottelMaker(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+    return BottelMaker;
+}());
+var bottel1 = new BottelMaker("Milton", 1200);
+// console.log(bottel1)
+// BottelMaker { name: 'Milton', price: 1200 }
+var HumanMaker = /** @class */ (function () {
+    function HumanMaker(name, isHandsome) {
+        this.name = name;
+        this.isHandsome = isHandsome;
+        this.age = 0;
+    }
+    return HumanMaker;
+}());
+var human1 = new HumanMaker("raghav", true);
+// console.log(human1)
+// HumanMaker { name: 'raghav', isHandsome: true, age: 0 }
+var human2 = new HumanMaker("sethiji", true);
+console.log(human2);

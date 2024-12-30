@@ -176,6 +176,45 @@ class Device {
 }
 let d1 = new Device  //both variable are same 
 let d2 = new Device  //both variable are same 
+// console.log(d1)
+// Device {
+//     name: 'lg',
+//     price: 12000,
+//     category: 'Digital',
+//     loaction: 'Noida'
+//   }
+// console.log(d2)
+//   Device {
+//     name: 'lg',
+//     price: 12000,
+//     category: 'Digital',
+//     loaction: 'Noida'
+//   }
+
+// Constructor-----------------------------
+// cunstructor biscket nahi biscket maker hoga jisse app or bhi jayada bisckets bna sakte hai and consume kar sakte hai 
+class BottelMaker {
+    constructor(public name: string, public price: number) {
+
+    }
+}
+let bottel1 = new BottelMaker("Milton", 1200)
+// console.log(bottel1)
+// BottelMaker { name: 'Milton', price: 1200 }
+
+class HumanMaker {
+    age = 0;
+    constructor(public name: string, public isHandsome: boolean) { }
+}
+let human1 = new HumanMaker("raghav", true)
+// console.log(human1)
+// HumanMaker { name: 'raghav', isHandsome: true, age: 0 }
+let human2 = new HumanMaker("sethiji", true)
+// console.log(human2)
+// HumanMaker { name: 'sethiji', isHandsome: true, age: 0 }
+
+
+
 
 
 
