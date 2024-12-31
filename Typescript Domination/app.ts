@@ -213,14 +213,29 @@ let human2 = new HumanMaker("sethiji", true)
 // console.log(human2)
 // HumanMaker { name: 'sethiji', isHandsome: true, age: 0 }
 
-
-
-
-
-
-
-
-
+class Music {
+    public name
+    public artist
+    public thumbnail
+    public length
+    public free
+    constructor(name: string, artist: string, thumbnail: string, length: number, free: boolean) {
+        this.name = name
+        this.artist = artist
+        this.thumbnail = thumbnail
+        this.length = length
+        this.free = free
+    }
+}
+let djraghav = new Music("success", "raghav", 'sound cheack', 2, true)
+// console.log(djraghav)
+// Music {
+//     name: 'success',
+//     artist: 'raghav',
+//     thumbnail: 'sound cheack',
+//     length: 2,
+//     free: true
+//   }
 
 
 

@@ -153,4 +153,17 @@ var human1 = new HumanMaker("raghav", true);
 // console.log(human1)
 // HumanMaker { name: 'raghav', isHandsome: true, age: 0 }
 var human2 = new HumanMaker("sethiji", true);
-console.log(human2);
+// console.log(human2)
+// HumanMaker { name: 'sethiji', isHandsome: true, age: 0 }
+var Music = /** @class */ (function () {
+    function Music(name, artist, thumbnail, length, free) {
+        this.name = name;
+        this.artist = artist;
+        this.thumbnail = thumbnail;
+        this.length = length;
+        this.free = free;
+    }
+    return Music;
+}());
+var djraghav = new Music("success", "raghav", 'sound cheack', 2, true);
+console.log(djraghav);
