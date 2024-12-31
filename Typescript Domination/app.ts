@@ -235,7 +235,22 @@ let djraghav = new Music("success", "raghav", 'sound cheack', 2, true)
 //     thumbnail: 'sound cheack',
 //     length: 2,
 //     free: true
-//   }
+//  }
+
+// Classes Parameter Properties 
+// BottelMakerTwo and BottelMakerThree code are same
+class BottelMakerTwo{
+    public name 
+    constructor(name: string){
+        this.name = name
+    }
+} 
+let bottel2 = new BottelMakerTwo("Milton")
+
+class BottelMakerThree{ 
+    constructor(public name:string){}
+}
+let bottel3 = new BottelMakerThree("Brass")
 
 
 
