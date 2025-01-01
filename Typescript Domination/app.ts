@@ -356,6 +356,161 @@ let optionuser2 = new OptionalUser("raghav", 20, "male")
 // OptionalUser { name: 'raghav', age: 20, gender: undefined }
 // OptionalUser { name: 'raghav', age: 20, gender: 'male' }
 
+// constructor properties 
+// class User {
+//     public name;
+//     public age;
+//     constructor(name : string, age: number){
+//         this.name=name
+//         this.age=age
+//     }
+// }
+
+// Parameter Properties
+// class User{
+//     constructor(public name: string, public age: number){}
+// }
+
+// Classes and Objects Getters and Setters 
+class GetAndSetUser{
+    constructor(public name : string, public age : number){
+    }
+    getName(){
+        return this.name
+    }
+    getAge(){
+        return this.age
+    }
+    setName(value: string){
+        this.name = value
+    }
+    setAge(value: number){
+        this.age = value
+    }
+}
+let user1 = new GetAndSetUser("raghav", 25)
+// console.log(user1)
+// console.log(user1.getName())
+// console.log(user1.getAge())
+// console.log(user1.setName("sethisahab"))
+// console.log(user1.setAge(20))
+// console.log(user1.getName())
+// console.log(user1.getAge())
+// console.log(user1)
+
+// GetAndSetUser { name: 'raghav', age: 25 }
+// raghav
+// 25
+// undefined
+// undefined
+// sethisahab
+// 20
+// GetAndSetUser { name: 'sethisahab', age: 20 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

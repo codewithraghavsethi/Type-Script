@@ -336,3 +336,45 @@ var optionuser2 = new OptionalUser("raghav", 20, "male");
 // console.log(optionuser2)
 // OptionalUser { name: 'raghav', age: 20, gender: undefined }
 // OptionalUser { name: 'raghav', age: 20, gender: 'male' }
+// constructor properties 
+// class User {
+//     public name;
+//     public age;
+//     constructor(name : string, age: number){
+//         this.name=name
+//         this.age=age
+//     }
+// }
+// Parameter Properties
+// class User{
+//     constructor(public name: string, public age: number){}
+// }
+// Classes and Objects Getters and Setters 
+var GetAndSetUser = /** @class */ (function () {
+    function GetAndSetUser(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    GetAndSetUser.prototype.getName = function () {
+        return this.name;
+    };
+    GetAndSetUser.prototype.getAge = function () {
+        return this.age;
+    };
+    GetAndSetUser.prototype.setName = function (value) {
+        this.name = value;
+    };
+    GetAndSetUser.prototype.setAge = function (value) {
+        this.age = value;
+    };
+    return GetAndSetUser;
+}());
+var user1 = new GetAndSetUser("raghav", 25);
+console.log(user1);
+console.log(user1.getName());
+console.log(user1.getAge());
+console.log(user1.setName("sethisahab"));
+console.log(user1.setAge(20));
+console.log(user1.getName());
+console.log(user1.getAge());
+console.log(user1);
