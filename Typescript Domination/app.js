@@ -1,4 +1,19 @@
 // Get Started -- Terminal Code
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 // Install --> npm install -g typescript 
 // Cheack --> tsc --version 
 // Create Confige File --> npx tsc --init
@@ -44,7 +59,8 @@ var StatusCode;
     StatusCode["NOTFOUND"] = "not found status code 404";
     StatusCode["SUCCESS"] = "succes status code 200";
 })(StatusCode || (StatusCode = {}));
-console.log(StatusCode.SUCCESS);
+// console.log(StatusCode.SUCCESS)
+// succes status code 200
 // Interfaces-------------------------------------------------
 var inter1 = 12; //this is a number --> its upon on value of data
 var inter2 = "13"; //this is a string --> its upon on value of data
@@ -131,16 +147,16 @@ var d2 = new Device; //both variable are same
 //   }
 // Constructor-----------------------------
 // cunstructor biscket nahi biscket maker hoga jisse app or bhi jayada bisckets bna sakte hai and consume kar sakte hai 
-var BottelMaker = /** @class */ (function () {
-    function BottelMaker(name, price) {
+var BottelMakerOne = /** @class */ (function () {
+    function BottelMakerOne(name, price) {
         this.name = name;
         this.price = price;
     }
-    return BottelMaker;
+    return BottelMakerOne;
 }());
-var bottel1 = new BottelMaker("Milton", 1200);
+var bottel1 = new BottelMakerOne("Milton", 1200);
 // console.log(bottel1)
-// BottelMaker { name: 'Milton', price: 1200 }
+// BottelMakerOne { name: 'Milton', price: 1200 }
 var HumanMaker = /** @class */ (function () {
     function HumanMaker(name, isHandsome) {
         this.name = name;
@@ -166,4 +182,157 @@ var Music = /** @class */ (function () {
     return Music;
 }());
 var djraghav = new Music("success", "raghav", 'sound cheack', 2, true);
-console.log(djraghav);
+// console.log(djraghav)
+// Music {
+//     name: 'success',
+//     artist: 'raghav',
+//     thumbnail: 'sound cheack',
+//     length: 2,
+//     free: true
+//  }
+// Classes and Objects Parameter Properties Method
+// BottelMakerTwo and BottelMakerThree code are same
+var BottelMakerTwo = /** @class */ (function () {
+    function BottelMakerTwo(name) {
+        this.name = name;
+    }
+    return BottelMakerTwo;
+}());
+var bottel2 = new BottelMakerTwo("Milton");
+var BottelMakerThree = /** @class */ (function () {
+    function BottelMakerThree(name) {
+        this.name = name;
+    }
+    return BottelMakerThree;
+}());
+var bottel3 = new BottelMakerThree("Brass");
+// Classes and Object with Public and Private Methods
+// Public Method
+var BottelMakerFour = /** @class */ (function () {
+    function BottelMakerFour(name) {
+        this.name = name;
+        this.name = name;
+    }
+    BottelMakerFour.prototype.change = function () {
+        this.name = "chilton";
+    };
+    return BottelMakerFour;
+}());
+var bottel4 = new BottelMakerFour("milton"); // BottelMakerFour { name: 'milton' }
+bottel4.change(); // BottelMakerFour { name: 'chilton' }
+// console.log(bottel4)
+// Private Method
+// Change to hoga but error bhi ayega but tarika galat hai, so don't do this 
+var BottelMakerFive = /** @class */ (function () {
+    function BottelMakerFive(name) {
+        this.name = name;
+        this.name = name;
+    }
+    BottelMakerFive.prototype.change = function () {
+        this.name = "mitu";
+    };
+    return BottelMakerFive;
+}());
+var bottel5 = new BottelMakerFive("titu"); // BottelMakerFive { name: 'titu' }
+bottel5.change(); // BottelMakerFive { name: 'mitu' }
+// console.log(bottel5)         
+// Classes and Objects with Extends Method
+var BottelMakerSix = /** @class */ (function () {
+    function BottelMakerSix(name) {
+        this.name = name;
+    }
+    return BottelMakerSix;
+}());
+var NewBottelMakerSix = /** @class */ (function (_super) {
+    __extends(NewBottelMakerSix, _super);
+    function NewBottelMakerSix(name, type) {
+        var _this = _super.call(this, name) || this;
+        _this.type = type;
+        return _this;
+    }
+    return NewBottelMakerSix;
+}(BottelMakerSix));
+var bottel6 = new BottelMakerSix("chilton");
+var newbottel6 = new NewBottelMakerSix("milton", "brass");
+//console.log(newbottel6)      // NewBottelMakerSix { name: 'milton', type: 'brass' }
+//console.log(bottel6)         // BottelMakerSix { name: 'chilton' }
+// Classes and Objects Protected Access Modifier Method
+var BottelMakerSeven = /** @class */ (function () {
+    function BottelMakerSeven() {
+        // private name = "milton"
+        this.name = "milton";
+    }
+    return BottelMakerSeven;
+}());
+var NewBottelMakerSeven = /** @class */ (function (_super) {
+    __extends(NewBottelMakerSeven, _super);
+    function NewBottelMakerSeven() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.material = "metal";
+        return _this;
+    }
+    NewBottelMakerSeven.prototype.changeName = function () {
+        this.name = "some other name";
+    };
+    return NewBottelMakerSeven;
+}(BottelMakerSeven));
+var bottel7 = new NewBottelMakerSeven();
+// console.log(bottel7)    NewBottelMakerSeven { name: 'milton', material: 'metal' }
+var BottelMakerEight = /** @class */ (function () {
+    function BottelMakerEight() {
+        // public name = "milton"
+        // private name = "milton"
+        this.name = "milton";
+    }
+    return BottelMakerEight;
+}());
+var NewBottelMakerEight = /** @class */ (function (_super) {
+    __extends(NewBottelMakerEight, _super);
+    function NewBottelMakerEight() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.material = "metal";
+        return _this;
+    }
+    NewBottelMakerEight.prototype.changeName = function () {
+        this.name = "some other name";
+    };
+    return NewBottelMakerEight;
+}(BottelMakerSeven));
+var bottel8 = new NewBottelMakerSeven();
+bottel8.changeName();
+// console.log(bottel8)   NewBottelMakerSeven { name: 'some other name', material: 'metal' }
+// Q:- What is deffrence between the public, private and protected
+// public :- sabhi jagha axis ho sakta hai
+// private :- sabhi jagha axis nahi hoga only block scop hota hai
+// protect :- sabhi jagha to axis nahi hoga but extend karne per axis ho jata hai 
+// There are three main visibility modifiers in TypeScript.
+// public - (default) allows access to the class member from anywhere
+// private - only allows access to the class member from within the class
+// protected - allows access to the class member from itself and any classes that inherit it, which is covered in the inheritance section below
+// Classes and Objects Readonly Properties
+var BottelMakerNine = /** @class */ (function () {
+    function BottelMakerNine(name) {
+        this.name = name;
+    }
+    BottelMakerNine.prototype.change = function () {
+        //this.name = "lelo"   
+        //Cannot assign to 'name' because it is a read-only property.
+    };
+    return BottelMakerNine;
+}());
+var bottel9 = new BottelMakerNine("milton");
+// Classes and Objects Optional Properties
+var OptionalUser = /** @class */ (function () {
+    function OptionalUser(name, age, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+    return OptionalUser;
+}());
+var optionuser1 = new OptionalUser("raghav", 20);
+var optionuser2 = new OptionalUser("raghav", 20, "male");
+// console.log(optionuser1)
+// console.log(optionuser2)
+// OptionalUser { name: 'raghav', age: 20, gender: undefined }
+// OptionalUser { name: 'raghav', age: 20, gender: 'male' }

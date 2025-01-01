@@ -54,7 +54,8 @@ enum StatusCode {
     NOTFOUND = "not found status code 404",
     SUCCESS = "succes status code 200"
 }
-console.log(StatusCode.SUCCESS)
+// console.log(StatusCode.SUCCESS)
+// succes status code 200
 
 // Interfaces-------------------------------------------------
 let inter1 = 12   //this is a number --> its upon on value of data
@@ -193,14 +194,14 @@ let d2 = new Device  //both variable are same
 
 // Constructor-----------------------------
 // cunstructor biscket nahi biscket maker hoga jisse app or bhi jayada bisckets bna sakte hai and consume kar sakte hai 
-class BottelMaker {
+class BottelMakerOne {
     constructor(public name: string, public price: number) {
 
     }
 }
-let bottel1 = new BottelMaker("Milton", 1200)
+let bottel1 = new BottelMakerOne("Milton", 1200)
 // console.log(bottel1)
-// BottelMaker { name: 'Milton', price: 1200 }
+// BottelMakerOne { name: 'Milton', price: 1200 }
 
 class HumanMaker {
     age = 0;
@@ -237,24 +238,123 @@ let djraghav = new Music("success", "raghav", 'sound cheack', 2, true)
 //     free: true
 //  }
 
-// Classes Parameter Properties 
+// Classes and Objects Parameter Properties Method
 // BottelMakerTwo and BottelMakerThree code are same
-class BottelMakerTwo{
-    public name 
-    constructor(name: string){
+class BottelMakerTwo {
+    public name
+    constructor(name: string) {
         this.name = name
     }
-} 
+}
 let bottel2 = new BottelMakerTwo("Milton")
 
-class BottelMakerThree{ 
-    constructor(public name:string){}
+class BottelMakerThree {
+    constructor(public name: string) { }
 }
 let bottel3 = new BottelMakerThree("Brass")
 
+// Classes and Object with Public and Private Methods
+// Public Method
+class BottelMakerFour {
+    constructor(public name: string) {
+        this.name = name
+    }
+    change() {
+        this.name = "chilton"
+    }
+}
+let bottel4 = new BottelMakerFour("milton")    // BottelMakerFour { name: 'milton' }
+bottel4.change()                              // BottelMakerFour { name: 'chilton' }
+// console.log(bottel4)
 
+// Private Method
+// Change to hoga but error bhi ayega but tarika galat hai, so don't do this 
+class BottelMakerFive {
+    constructor(private name: string) {
+        this.name = name
+    }
+    change() {
+        this.name = "mitu"
+    }
+}
+let bottel5 = new BottelMakerFive("titu")     // BottelMakerFive { name: 'titu' }
+bottel5.change()                             // BottelMakerFive { name: 'mitu' }
+// console.log(bottel5)         
 
+// Classes and Objects with Extends Method
+class BottelMakerSix {
+    constructor(public name: string) { }
+}
+class NewBottelMakerSix extends BottelMakerSix {
+    constructor(name: string, public type: string) {
+        super(name)
+    }
+}
+let bottel6 = new BottelMakerSix("chilton")
+let newbottel6 = new NewBottelMakerSix("milton", "brass")
+//console.log(newbottel6)      // NewBottelMakerSix { name: 'milton', type: 'brass' }
+//console.log(bottel6)         // BottelMakerSix { name: 'chilton' }
 
+// Classes and Objects Protected Access Modifier Method
+class BottelMakerSeven {
+    // private name = "milton"
+    public name = "milton"
+}
+class NewBottelMakerSeven extends BottelMakerSeven {
+    public material = "metal"
+    changeName() {        // if your name variable is private then error
+        this.name = "some other name"
+    }
+}
+let bottel7 = new NewBottelMakerSeven()
+// console.log(bottel7)    NewBottelMakerSeven { name: 'milton', material: 'metal' }
+
+class BottelMakerEight {
+    // public name = "milton"
+    // private name = "milton"
+    protected name = "milton"
+}
+class NewBottelMakerEight extends BottelMakerSeven {
+    public material = "metal"
+    changeName() {        // if your name variable is private then error
+        this.name = "some other name"
+    }
+}
+let bottel8 = new NewBottelMakerSeven()
+bottel8.changeName()
+// console.log(bottel8)   NewBottelMakerSeven { name: 'some other name', material: 'metal' }
+
+// Q:- What is deffrence between the public, private and protected
+// public :- sabhi jagha axis ho sakta hai
+// private :- sabhi jagha axis nahi hoga only block scop hota hai
+// protect :- sabhi jagha to axis nahi hoga but extend karne per axis ho jata hai 
+
+// There are three main visibility modifiers in TypeScript.
+// public - (default) allows access to the class member from anywhere
+// private - only allows access to the class member from within the class
+// protected - allows access to the class member from itself and any classes that inherit it, which is covered in the inheritance section below
+
+// Classes and Objects Readonly Properties
+class BottelMakerNine{
+    constructor(public readonly name: string){
+    }
+    change(){
+        //this.name = "lelo"   
+        //Cannot assign to 'name' because it is a read-only property.
+    }
+}
+let bottel9 = new BottelMakerNine("milton")
+
+// Classes and Objects Optional Properties
+class OptionalUser{
+    constructor(public name: string, public age: number, public gender?:string){}
+}
+let optionuser1 = new OptionalUser("raghav", 20)
+let optionuser2 = new OptionalUser("raghav", 20, "male")
+// console.log(optionuser1)
+// console.log(optionuser2)
+// OptionalUser { name: 'raghav', age: 20, gender: undefined }
+// OptionalUser { name: 'raghav', age: 20, gender: 'male' }
 
 
 
