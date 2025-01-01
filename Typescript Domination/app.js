@@ -206,7 +206,7 @@ var BottelMakerThree = /** @class */ (function () {
     return BottelMakerThree;
 }());
 var bottel3 = new BottelMakerThree("Brass");
-// Classes and Object with Public and Private Methods
+// Classes and Object with Public and Private Methods--------------------------------------------------------------------
 // Public Method
 var BottelMakerFour = /** @class */ (function () {
     function BottelMakerFour(name) {
@@ -236,7 +236,7 @@ var BottelMakerFive = /** @class */ (function () {
 var bottel5 = new BottelMakerFive("titu"); // BottelMakerFive { name: 'titu' }
 bottel5.change(); // BottelMakerFive { name: 'mitu' }
 // console.log(bottel5)         
-// Classes and Objects with Extends Method
+// Classes and Objects with Extends Method------------------------------------------------------------
 var BottelMakerSix = /** @class */ (function () {
     function BottelMakerSix(name) {
         this.name = name;
@@ -256,7 +256,7 @@ var bottel6 = new BottelMakerSix("chilton");
 var newbottel6 = new NewBottelMakerSix("milton", "brass");
 //console.log(newbottel6)      // NewBottelMakerSix { name: 'milton', type: 'brass' }
 //console.log(bottel6)         // BottelMakerSix { name: 'chilton' }
-// Classes and Objects Protected Access Modifier Method
+// Classes and Objects Protected Access Modifier Method---------------------------------------------------------------------
 var BottelMakerSeven = /** @class */ (function () {
     function BottelMakerSeven() {
         // private name = "milton"
@@ -309,7 +309,7 @@ bottel8.changeName();
 // public - (default) allows access to the class member from anywhere
 // private - only allows access to the class member from within the class
 // protected - allows access to the class member from itself and any classes that inherit it, which is covered in the inheritance section below
-// Classes and Objects Readonly Properties
+// Classes and Objects Readonly Properties-------------------------------------------------------------
 var BottelMakerNine = /** @class */ (function () {
     function BottelMakerNine(name) {
         this.name = name;
@@ -321,7 +321,7 @@ var BottelMakerNine = /** @class */ (function () {
     return BottelMakerNine;
 }());
 var bottel9 = new BottelMakerNine("milton");
-// Classes and Objects Optional Properties
+// Classes and Objects Optional Properties------------------------------------------------------------
 var OptionalUser = /** @class */ (function () {
     function OptionalUser(name, age, gender) {
         this.name = name;
@@ -349,32 +349,197 @@ var optionuser2 = new OptionalUser("raghav", 20, "male");
 // class User{
 //     constructor(public name: string, public age: number){}
 // }
-// Classes and Objects Getters and Setters 
-var GetAndSetUser = /** @class */ (function () {
-    function GetAndSetUser(name, age) {
+// Classes and Objects Getters and Setters----------------------------------------------------------
+var GetAndSetUser1 = /** @class */ (function () {
+    function GetAndSetUser1(name, age) {
         this.name = name;
         this.age = age;
     }
-    GetAndSetUser.prototype.getName = function () {
+    GetAndSetUser1.prototype.getName = function () {
         return this.name;
     };
-    GetAndSetUser.prototype.getAge = function () {
+    GetAndSetUser1.prototype.getAge = function () {
         return this.age;
     };
-    GetAndSetUser.prototype.setName = function (value) {
+    GetAndSetUser1.prototype.setName = function (value) {
         this.name = value;
     };
-    GetAndSetUser.prototype.setAge = function (value) {
+    GetAndSetUser1.prototype.setAge = function (value) {
         this.age = value;
     };
-    return GetAndSetUser;
+    return GetAndSetUser1;
 }());
-var user1 = new GetAndSetUser("raghav", 25);
-console.log(user1);
-console.log(user1.getName());
-console.log(user1.getAge());
-console.log(user1.setName("sethisahab"));
-console.log(user1.setAge(20));
-console.log(user1.getName());
-console.log(user1.getAge());
-console.log(user1);
+var user1 = new GetAndSetUser1("raghav", 25);
+// console.log(user1)
+// console.log(user1.getName())
+// console.log(user1.getAge())
+// console.log(user1.setName("sethisahab"))
+// console.log(user1.setAge(20))
+// console.log(user1.getName())
+// console.log(user1.getAge())
+// console.log(user1)
+// GetAndSetUser { name: 'raghav', age: 25 }
+// raghav
+// 25
+// undefined
+// undefined
+// sethisahab
+// 20
+// GetAndSetUser { name: 'sethisahab', age: 20 }
+// Getter and Setter method use with variable get and set 
+var GetAndSetUser2 = /** @class */ (function () {
+    function GetAndSetUser2(_name, _age) {
+        this._name = _name;
+        this._age = _age;
+    }
+    Object.defineProperty(GetAndSetUser2.prototype, "name", {
+        get: function () {
+            return this._name;
+        },
+        set: function (value) {
+            this._name = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(GetAndSetUser2.prototype, "age", {
+        get: function () {
+            return this._age;
+        },
+        set: function (value) {
+            this._age = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return GetAndSetUser2;
+}());
+var user2 = new GetAndSetUser1("srashti", 20);
+// console.log(user2)
+// console.log(user2.name)
+// console.log(user2.age)
+// console.log(user2.name = "khushi")
+// console.log(user2.age = 18)
+// console.log(user2)
+// GetAndSetUser1 { name: 'srashti', age: 20 }
+// srashti
+// 20
+// khushi
+// 18
+// GetAndSetUser1 { name: 'khushi', age: 18 }
+// Static Members ---------------------------------------------------------------------
+var getRandomNumber = /** @class */ (function () {
+    function getRandomNumber() {
+    }
+    getRandomNumber.prototype.getNum = function () {
+        return Math.random();
+    };
+    return getRandomNumber;
+}());
+var getnum1 = new getRandomNumber();
+// you cannot getNum function without create variable.
+// console.log(getnum1.getNum()) 
+// 0.13885064369686993
+var getRandomNumberWithStatic = /** @class */ (function () {
+    function getRandomNumberWithStatic() {
+    }
+    getRandomNumberWithStatic.getNum = function () {
+        return Math.random();
+    };
+    return getRandomNumberWithStatic;
+}());
+// you can getNum function without create variable.
+// console.log(getRandomNumberWithStatic.getNum())
+// 0.9900869600867499
+var SethiSoftware = /** @class */ (function () {
+    function SethiSoftware() {
+    }
+    SethiSoftware.version = 1.13;
+    return SethiSoftware;
+}());
+// You can call this function without any create the new model variable of the SethiSoftware
+// console.log(SethiSoftware.version)
+// 1.13
+// Classes and Objects Abstract Methods---------------------------------------------------------------------
+var CookingEssentials = /** @class */ (function () {
+    function CookingEssentials(gas, gasName) {
+        this.gas = gas;
+        this.gasName = gasName;
+    }
+    return CookingEssentials;
+}());
+var Sabji = /** @class */ (function (_super) {
+    __extends(Sabji, _super);
+    function Sabji() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Sabji;
+}(CookingEssentials));
+var Cake = /** @class */ (function (_super) {
+    __extends(Cake, _super);
+    function Cake() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Cake;
+}(CookingEssentials));
+// FUNCTION--------------------------------------------------------------------------------------------------
+// Introduction to Function ---------------------------------------------------------------------------------
+// Function Types 
+function funOne() {
+}
+function funTwo() {
+    return "Hi Raghav Sethi";
+}
+function funThree() {
+    return 1331;
+}
+// Function Callback  
+function funCallBackOne(name, age, cb) {
+    cb("Hey! Raghav");
+}
+funCallBackOne("raghav", 25, function (arg) {
+    // console.log("Argument-Print-Hoga:-",arg)
+    // Argument-Print-Hoga:- Hey! Raghav
+});
+// Functin Optional and Default Parameter 
+function funWithGender(name, age, gender) {
+    if (gender === void 0) { gender = "not to be disclosed"; }
+    console.log(name, age, gender);
+}
+//funWithGender("raghav", 24, "male")
+//funWithGender("xyz", 18)                                            // this code will be run without gender because you have alredy give the parameter "not to be disclosed"
+//funWithGender("xyz")                                            // this code will not be run because you don't define the age of the user
+//funWithGender()                                             // this code will not be run because you don't define the name and age of the user 
+// raghav 24 male
+// xyz 18 not to be disclosed
+// Function Rest Parameters
+// ... Three dots are The REST Operator and The SPREAD Operator 
+function sum() {
+    var arg = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        arg[_i] = arguments[_i];
+    }
+    console.log(arg);
+}
+// sum(1,2,3,4,5,6,7,8,9,10)
+// [
+//     1, 2, 3, 4,  5,
+//     6, 7, 8, 9, 10
+//   ]
+function CollectionOfTheFriends() {
+    var fr = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        fr[_i] = arguments[_i];
+    }
+    console.log(fr);
+    console.log(fr[0]);
+    console.log(fr[1]);
+    console.log(fr[2]);
+    console.log(fr[3]);
+    console.log(fr[4]);
+    console.log(fr[5]);
+    console.log(fr[6]);
+    console.log(fr[7]);
+}
+CollectionOfTheFriends("raghav", "sethi", "raghavji", "sethiji", "sethisahab", "selflover");
+// [ 'raghav', 'sethi', 'raghavji', 'sethiji', 'sethisahab', 'selflover' ]

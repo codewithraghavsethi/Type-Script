@@ -253,7 +253,7 @@ class BottelMakerThree {
 }
 let bottel3 = new BottelMakerThree("Brass")
 
-// Classes and Object with Public and Private Methods
+// Classes and Object with Public and Private Methods--------------------------------------------------------------------
 // Public Method
 class BottelMakerFour {
     constructor(public name: string) {
@@ -281,7 +281,7 @@ let bottel5 = new BottelMakerFive("titu")     // BottelMakerFive { name: 'titu' 
 bottel5.change()                             // BottelMakerFive { name: 'mitu' }
 // console.log(bottel5)         
 
-// Classes and Objects with Extends Method
+// Classes and Objects with Extends Method------------------------------------------------------------
 class BottelMakerSix {
     constructor(public name: string) { }
 }
@@ -295,7 +295,7 @@ let newbottel6 = new NewBottelMakerSix("milton", "brass")
 //console.log(newbottel6)      // NewBottelMakerSix { name: 'milton', type: 'brass' }
 //console.log(bottel6)         // BottelMakerSix { name: 'chilton' }
 
-// Classes and Objects Protected Access Modifier Method
+// Classes and Objects Protected Access Modifier Method---------------------------------------------------------------------
 class BottelMakerSeven {
     // private name = "milton"
     public name = "milton"
@@ -334,20 +334,20 @@ bottel8.changeName()
 // private - only allows access to the class member from within the class
 // protected - allows access to the class member from itself and any classes that inherit it, which is covered in the inheritance section below
 
-// Classes and Objects Readonly Properties
-class BottelMakerNine{
-    constructor(public readonly name: string){
+// Classes and Objects Readonly Properties-------------------------------------------------------------
+class BottelMakerNine {
+    constructor(public readonly name: string) {
     }
-    change(){
+    change() {
         //this.name = "lelo"   
         //Cannot assign to 'name' because it is a read-only property.
     }
 }
 let bottel9 = new BottelMakerNine("milton")
 
-// Classes and Objects Optional Properties
-class OptionalUser{
-    constructor(public name: string, public age: number, public gender?:string){}
+// Classes and Objects Optional Properties------------------------------------------------------------
+class OptionalUser {
+    constructor(public name: string, public age: number, public gender?: string) { }
 }
 let optionuser1 = new OptionalUser("raghav", 20)
 let optionuser2 = new OptionalUser("raghav", 20, "male")
@@ -371,24 +371,24 @@ let optionuser2 = new OptionalUser("raghav", 20, "male")
 //     constructor(public name: string, public age: number){}
 // }
 
-// Classes and Objects Getters and Setters 
-class GetAndSetUser{
-    constructor(public name : string, public age : number){
+// Classes and Objects Getters and Setters----------------------------------------------------------
+class GetAndSetUser1 {
+    constructor(public name: string, public age: number) {
     }
-    getName(){
+    getName() {
         return this.name
     }
-    getAge(){
+    getAge() {
         return this.age
     }
-    setName(value: string){
+    setName(value: string) {
         this.name = value
     }
-    setAge(value: number){
+    setAge(value: number) {
         this.age = value
     }
 }
-let user1 = new GetAndSetUser("raghav", 25)
+let user1 = new GetAndSetUser1("raghav", 25)
 // console.log(user1)
 // console.log(user1.getName())
 // console.log(user1.getAge())
@@ -407,116 +407,154 @@ let user1 = new GetAndSetUser("raghav", 25)
 // 20
 // GetAndSetUser { name: 'sethisahab', age: 20 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Getter and Setter method use with variable get and set 
+class GetAndSetUser2 {
+    constructor(public _name: string, public _age: number) {
+    }
+    get name() {
+        return this._name
+    }
+    get age() {
+        return this._age
+    }
+    set name(value: string) {
+        this._name = value
+    }
+    set age(value: number) {
+        this._age = value
+    }
+}
+let user2 = new GetAndSetUser1("srashti", 20)
+
+// console.log(user2)
+// console.log(user2.name)
+// console.log(user2.age)
+// console.log(user2.name = "khushi")
+// console.log(user2.age = 18)
+// console.log(user2)
+
+// GetAndSetUser1 { name: 'srashti', age: 20 }
+// srashti
+// 20
+// khushi
+// 18
+// GetAndSetUser1 { name: 'khushi', age: 18 }
+
+// Static Members ---------------------------------------------------------------------
+class getRandomNumber {
+    getNum() {
+        return Math.random()
+    }
+}
+let getnum1 = new getRandomNumber()
+// you cannot getNum function without create variable.
+// console.log(getnum1.getNum()) 
+// 0.13885064369686993
+
+class getRandomNumberWithStatic {
+    static getNum() {
+        return Math.random()
+    }
+}
+// you can getNum function without create variable.
+// console.log(getRandomNumberWithStatic.getNum())
+// 0.9900869600867499
+
+class SethiSoftware {
+    static version = 1.13
+}
+// You can call this function without any create the new model variable of the SethiSoftware
+// console.log(SethiSoftware.version)
+// 1.13
+
+// Classes and Objects Abstract Methods---------------------------------------------------------------------
+class CookingEssentials {
+    constructor(protected gas: string, protected gasName: string) { }
+}
+class Sabji extends CookingEssentials { }
+class Cake extends CookingEssentials { }
+
+
+
+
+
+
+
+// FUNCTION--------------------------------------------------------------------------------------------------
+// Introduction to Function ---------------------------------------------------------------------------------
+
+// Function Types 
+
+function funOne(): void {
+
+}
+
+function funTwo(): string {
+    return "Hi Raghav Sethi"
+}
+
+function funThree(): number {
+    return 1331
+}
+
+// Function Callback  
+function funCallBackOne(name: string, age: number, cb: (arg: string) => void) {
+    cb("Hey! Raghav")
+}
+
+funCallBackOne("raghav", 25, (arg: string) => {
+    // console.log("Argument-Print-Hoga:-",arg)
+    // Argument-Print-Hoga:- Hey! Raghav
+})
+
+
+// Functin Optional and Default Parameter 
+function funWithGender(name: string, age: number, gender: string = "not to be disclosed"){
+    console.log(name, age, gender)
+}
+
+//funWithGender("raghav", 24, "male")
+//funWithGender("xyz", 18)                                            // this code will be run without gender because you have alredy give the parameter "not to be disclosed"
+//funWithGender("xyz")                                            // this code will not be run because you don't define the age of the user
+//funWithGender()                                             // this code will not be run because you don't define the name and age of the user 
+
+// raghav 24 male
+// xyz 18 not to be disclosed
+
+
+// Function Rest Parameters
+// ... Three dots are The REST Operator and The SPREAD Operator 
+
+function sum(...arg: number[]){
+    console.log(arg)
+}
+// sum(1,2,3,4,5,6,7,8,9,10)
+// [
+//     1, 2, 3, 4,  5,
+//     6, 7, 8, 9, 10
+//   ]
+
+function CollectionOfTheFriends(...fr: string[]){
+    console.log(fr)
+    console.log(fr[0])
+    console.log(fr[1])
+    console.log(fr[2])
+    console.log(fr[3])
+    console.log(fr[4])
+    console.log(fr[5])
+    console.log(fr[6])
+    console.log(fr[7])
+}
+// CollectionOfTheFriends("raghav","sethi","raghavji","sethiji","sethisahab","selflover")
+// [ 'raghav', 'sethi', 'raghavji', 'sethiji', 'sethisahab', 'selflover' ]
+// raghav
+// sethi
+// raghavji
+// sethiji
+// sethisahab
+// selflover
+// undefined
+// undefined
 
 
 
