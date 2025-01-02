@@ -541,15 +541,158 @@ function CollectionOfTheFriends() {
     console.log(fr[6]);
     console.log(fr[7]);
 }
-function OverOne(a, b) {
-    if (typeof a === "string" && b === "undefined") {
-        console.log("Hey Buddy");
-    }
-    if (typeof a === "string" && typeof b === "number") {
-        console.log(123);
-    }
-    else
-        throw new Error("Something went wrong");
+// CollectionOfTheFriends("raghav","sethi","raghavji","sethiji","sethisahab","selflover")
+// [ 'raghav', 'sethi', 'raghavji', 'sethiji', 'sethisahab', 'selflover' ]
+// raghav
+// sethi
+// raghavji
+// sethiji
+// sethisahab
+// selflover
+// undefined
+// undefined
+// Function Overloading 
+// function over(a: string): void
+// function over(a: string, b: number): number
+// function over(a: any, b?: any ){
+//     if(typeof a === "string" && typeof b === "undefined" ){
+//         console.log("Hey Buddy")
+//     }
+//     if(typeof a === "string" && typeof b === "number"){
+//         console.log(123)
+//     }
+//     else throw new Error("Something went wrong");
+// }
+// over("hey")
+// over("hey", 12)
+// Generics Functions-----------------------------------------------------------------------------------
+function loginOne(a) {
+    console.log(a);
 }
-OverOne("hey");
-OverOne("hey", 12);
+// loginOne("hey")   
+// hey
+function loginTwo(a) {
+    console.log(a);
+}
+// loginTwo("hello")
+// loginTwo(123)
+// loginTwo(true)
+// hello
+// 123
+// true
+function loginThree(a) {
+    console.log(a);
+}
+// loginThree("Hi! Raghav")
+// loginThree(123)
+// loginThree(true)
+// Hi! Raghav
+// 123
+// true
+function GenFunOne(a) {
+    console.log(a);
+}
+// GenFunOne<string>("hey")
+// GenFunOne<number>(123)
+// GenFunOne<boolean>(true)
+// hey
+// 123
+// true
+// Create console.log() function using Generics
+function log(value) {
+    console.log(value);
+}
+function GenInterFunOne(obj) {
+    console.log(obj);
+}
+// GenInterFunOne({ name: "raghav", age: 24, key: "this is raghav sethi here" })
+// { name: 'raghav', age: 24, key: 'this is raghav sethi here' }
+// Generics Classes --------------------------------------------------------------------------------
+var GenMaker = /** @class */ (function () {
+    function GenMaker(key) {
+        this.key = key;
+    }
+    return GenMaker;
+}());
+var genMakerOne = new GenMaker("Hey i am a string");
+var genMakerTwo = new GenMaker(123456789);
+// console.log(genMakerOne, genMakerTwo)
+// GenMaker { key: 'Hey i am a string' } GenMaker { key: 123456789 }
+// very important concept for Generics 
+function GenImp(a, b) {
+    // return a;            //Hi
+    // return b;            //Hello
+    //return "hello"        //Error ----
+    return "hey"; //hey     
+}
+GenImp("Hi", "Hello");
+// console.log(GenImp<string>("Hi", "Hello"))
+// Modules---------------------------------------------------------------------
+// Exporting and Importing Modules 
+// export function addPayment(){}
+// import {addPayment} from "./payment.ts"
+// Default Export 
+// export default class payment{
+//         constructor (public name: string){ }
+// }
+// import payment from "./payment.ts"
+// Type Casting ------------------------------------------------------------
+var a = Number("raghav");
+// console.log(typeof a)
+var b = Number("13");
+// console.log(typeof b)
+var c = 13;
+// console.log(typeof c)
+var d = "13";
+// console.log(typeof d)
+// number
+// number
+// number
+// string
+// Type Guard --> Type Narrowing -------------------------------------------------------------
+function narrow(arg) {
+    if (typeof arg === "string") {
+        return "string";
+    }
+    if (typeof arg === "number") {
+        return "number";
+    }
+    else {
+        return "something went wrong! Please Cheak your data type";
+    }
+}
+// console.log(narrow("hi"))
+// console.log(narrow(123))
+// console.log(narrow(true))
+// string
+// number
+// something went wrong! Please Cheak your data type
+// Type Gaurd Instanceof
+var TvKaRemote = /** @class */ (function () {
+    function TvKaRemote() {
+    }
+    TvKaRemote.prototype.switchTvOff = function () {
+        console.log("Switching off TV");
+    };
+    return TvKaRemote;
+}());
+var CarKaRemote = /** @class */ (function () {
+    function CarKaRemote() {
+    }
+    CarKaRemote.prototype.switchCarOff = function () {
+        console.log("Switching off Car");
+    };
+    return CarKaRemote;
+}());
+var tv = new TvKaRemote();
+var car1 = new CarKaRemote();
+function switchOffKaro(device) {
+    if (device instanceof TvKaRemote) {
+        device.switchTvOff();
+    }
+    else if (device instanceof CarKaRemote) {
+        device.switchCarOff();
+    }
+}
+// console.log(tv.switchTvOff())
+// console.log(car1.switchCarOff())

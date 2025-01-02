@@ -509,7 +509,7 @@ funCallBackOne("raghav", 25, (arg: string) => {
 
 
 // Functin Optional and Default Parameter 
-function funWithGender(name: string, age: number, gender: string = "not to be disclosed"){
+function funWithGender(name: string, age: number, gender: string = "not to be disclosed") {
     console.log(name, age, gender)
 }
 
@@ -525,7 +525,7 @@ function funWithGender(name: string, age: number, gender: string = "not to be di
 // Function Rest Parameters
 // ... Three dots are The REST Operator and The SPREAD Operator 
 
-function sum(...arg: number[]){
+function sum(...arg: number[]) {
     console.log(arg)
 }
 // sum(1,2,3,4,5,6,7,8,9,10)
@@ -534,7 +534,7 @@ function sum(...arg: number[]){
 //     6, 7, 8, 9, 10
 //   ]
 
-function CollectionOfTheFriends(...fr: string[]){
+function CollectionOfTheFriends(...fr: string[]) {
     console.log(fr)
     console.log(fr[0])
     console.log(fr[1])
@@ -573,9 +573,182 @@ function CollectionOfTheFriends(...fr: string[]){
 // over("hey", 12)
 
 
+// Generics Functions-----------------------------------------------------------------------------------
+function loginOne(a: string) {
+    console.log(a)
+}
+// loginOne("hey")   
+// hey
+
+function loginTwo(a: string | number | boolean) {
+    console.log(a)
+}
+// loginTwo("hello")
+// loginTwo(123)
+// loginTwo(true)
+// hello
+// 123
+// true
+
+function loginThree(a: any) {
+    console.log(a)
+}
+// loginThree("Hi! Raghav")
+// loginThree(123)
+// loginThree(true)
+// Hi! Raghav
+// 123
+// true
+
+function GenFunOne<type>(a: type) {
+    console.log(a)
+}
+// GenFunOne<string>("hey")
+// GenFunOne<number>(123)
+// GenFunOne<boolean>(true)
+// hey
+// 123
+// true
+
+// Create console.log() function using Generics
+function log<T>(value: T) {
+    console.log(value)
+}
+// log<string>("Hey Raghav")
+// log("Hey Raghav")
+// log<number>(1331)
+// log(1331)
+// Hey Raghav
+// Hey Raghav
+// 1331
+// 1331
+
+// Generics Interface ------------------------------------------------------------------------------ 
+
+interface GenInter<T> {
+    name: string
+    age: number
+    key: T
+}
+function GenInterFunOne(obj: GenInter<string>) {
+    console.log(obj)
+}
+// GenInterFunOne({ name: "raghav", age: 24, key: "this is raghav sethi here" })
+// { name: 'raghav', age: 24, key: 'this is raghav sethi here' }
+
+// Generics Classes --------------------------------------------------------------------------------
+class GenMaker<T>{
+    constructor ( public key: T){}
+}
+
+let genMakerOne = new GenMaker<string>("Hey i am a string")
+let genMakerTwo = new GenMaker<number>(123456789)
+// console.log(genMakerOne, genMakerTwo)
+// GenMaker { key: 'Hey i am a string' } GenMaker { key: 123456789 }
+
+
+// very important concept for Generics 
+function GenImp<T>(a: T, b: T): T {
+    // return a;            //Hi
+    // return b;            //Hello
+    //return "hello"        //Error ----
+    return "hey" as T     //hey     
+}
+GenImp<string>("Hi", "Hello")
+// console.log(GenImp<string>("Hi", "Hello"))
+
+// Modules---------------------------------------------------------------------
+// Exporting and Importing Modules 
+// export function addPayment(){}
+// import {addPayment} from "./payment.ts"
+
+// Default Export 
+// export default class payment{
+//         constructor (public name: string){ }
+// }
+// import payment from "./payment.ts"
+
+// Type Casting ------------------------------------------------------------
+let a = Number("raghav")
+// console.log(typeof a)
+let b = Number("13")
+// console.log(typeof b)
+let c = 13
+// console.log(typeof c)
+let d = "13"
+// console.log(typeof d)
+// number
+// number
+// number
+// string
+
+
+// Type Guard --> Type Narrowing -------------------------------------------------------------
+function narrow(arg: string | number | any){
+    if(typeof arg === "string"){
+        return "string"
+    }
+    if(typeof arg === "number"){
+        return "number"
+    }
+    else{
+        return "something went wrong! Please Cheak your data type"
+    }
+}
+// console.log(narrow("hi"))
+// console.log(narrow(123))
+// console.log(narrow(true))
+// string
+// number
+// something went wrong! Please Cheak your data type
+
+
+// Type Gaurd Instanceof
+
+class TvKaRemote{
+    switchTvOff(){
+        console.log("Switching off TV")
+    }
+}
+
+class CarKaRemote{
+    switchCarOff(){
+        console.log("Switching off Car")
+    }
+}
+
+const tv = new TvKaRemote()
+const car1 = new CarKaRemote()
+
+function switchOffKaro(device: TvKaRemote | CarKaRemote){
+    if(device instanceof TvKaRemote){
+        device.switchTvOff()
+    }
+    else if(device instanceof CarKaRemote){
+        device.switchCarOff()
+    }
+}
+
+// console.log(tv.switchTvOff())
+// console.log(car1.switchCarOff())
+// Switching off TV
+// undefined
+// Switching off Car
+// undefined
 
 
 
 
 
 
+
+
+
+
+
+
+
+// The End Thank You!
+//===================================================================================== 
+//=====================================================================================
+//=====================================================================================
