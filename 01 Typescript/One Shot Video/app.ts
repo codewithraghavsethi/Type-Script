@@ -556,6 +556,22 @@ function CollectionOfTheFriends(...fr: string[]){
 // undefined
 // undefined
 
+// Function Overloading 
+
+// function over(a: string): void
+// function over(a: string, b: number): number
+// function over(a: any, b?: any ){
+//     if(typeof a === "string" && typeof b === "undefined" ){
+//         console.log("Hey Buddy")
+//     }
+//     if(typeof a === "string" && typeof b === "number"){
+//         console.log(123)
+//     }
+//     else throw new Error("Something went wrong");
+// }
+// over("hey")
+// over("hey", 12)
+
 
 
 

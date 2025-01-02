@@ -541,5 +541,15 @@ function CollectionOfTheFriends() {
     console.log(fr[6]);
     console.log(fr[7]);
 }
-CollectionOfTheFriends("raghav", "sethi", "raghavji", "sethiji", "sethisahab", "selflover");
-// [ 'raghav', 'sethi', 'raghavji', 'sethiji', 'sethisahab', 'selflover' ]
+function OverOne(a, b) {
+    if (typeof a === "string" && b === "undefined") {
+        console.log("Hey Buddy");
+    }
+    if (typeof a === "string" && typeof b === "number") {
+        console.log(123);
+    }
+    else
+        throw new Error("Something went wrong");
+}
+OverOne("hey");
+OverOne("hey", 12);
